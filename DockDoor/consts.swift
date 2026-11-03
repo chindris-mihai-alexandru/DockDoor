@@ -128,6 +128,7 @@ extension Defaults.Keys {
     static let cmdTabSortOrder = Key<WindowPreviewSortOrder>("cmdTabSortOrder", default: .recentlyUsed)
     static let sortMinimizedToEnd = Key<Bool>("sortMinimizedToEnd", default: false)
     static let enableCmdTabEnhancements = Key<Bool>("enableCmdTabEnhancements", default: false)
+    static let enableInstantCmdTabSearch = Key<Bool>("enableInstantCmdTabSearch", default: false)
     static let cmdTabAutoSelectFirstWindow = Key<Bool>("cmdTabAutoSelectFirstWindow", default: false)
     static let cmdTabCycleKey = Key<UInt16>("cmdTabCycleKey", default: UInt16(kVK_ANSI_A))
     static let cmdTabBackwardCycleKey = Key<UInt16>("cmdTabBackwardCycleKey", default: UInt16(kVK_ANSI_Grave))

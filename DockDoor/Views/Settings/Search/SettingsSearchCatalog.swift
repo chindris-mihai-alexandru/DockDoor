@@ -518,6 +518,15 @@ enum SettingsSearchCatalog {
             icon: "command"
         ),
         SettingsSearchItem(
+            id: "cmdTab.instantSearch",
+            title: String(localized: "Open with window search"),
+            description: String(localized: "When Cmd+Tab opens, show every app's windows with search ready."),
+            keywords: ["cmd tab", "search", "instant", "filter"],
+            tab: "CmdTab",
+            section: "",
+            icon: "text.magnifyingglass"
+        ),
+        SettingsSearchItem(
             id: "cmdTab.cycleKey",
             title: String(localized: "Preview cycle key:"),
             keywords: ["cycle", "key", "forward", "tab"],

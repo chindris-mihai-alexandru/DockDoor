@@ -79,6 +79,12 @@ final class DockObserver {
     // Cmd+Tab switcher monitoring (accessed from extension file)
     var cmdTabObserver: AXObserver?
     var cmdTabPollingTimer: Timer?
+    /// Two-way sync bookkeeping between the native Cmd+Tab highlight and the search panel.
+    var cmdTabSelection = CmdTabSelectionTracker()
+    /// Presents the instant Cmd+Tab search session; returns false when it cannot
+    /// (no windows, secure input, feature off) so the normal overlay is shown instead.
+    /// Registered by KeybindHelper, which owns the session presentation.
+    var instantSearchPresenter: (() -> Bool)?
 
     private var eventTap: CFMachPort?
     private var eventTapRunLoopSource: CFRunLoopSource?

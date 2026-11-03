@@ -3,6 +3,7 @@ import SwiftUI
 
 struct CmdTabSettingsView: View {
     @Default(.enableCmdTabEnhancements) var enableCmdTabEnhancements
+    @Default(.enableInstantCmdTabSearch) var enableInstantCmdTabSearch
     @Default(.cmdTabCycleKey) var cmdTabCycleKey
     @Default(.cmdTabBackwardCycleKey) var cmdTabBackwardCycleKey
     @Default(.showWindowsFromCurrentSpaceOnlyInCmdTab) var showWindowsFromCurrentSpaceOnlyInCmdTab
@@ -50,6 +51,14 @@ struct CmdTabSettingsView: View {
                     more: "Cmd+\(KeyboardLabel.localizedKey(for: cmdTabCycleKey)) cycles forward, Cmd+\(KeyboardLabel.localizedKey(for: cmdTabBackwardCycleKey)) or Shift+Tab cycles backward, Left/Right navigate, Down clears selection."
                 )
                 .onChange(of: enableCmdTabEnhancements) { _ in askUserToRestartApplication() }
+            if enableCmdTabEnhancements {
+                Toggle(isOn: $enableInstantCmdTabSearch) { Text("Open with window search") }
+                    .settingsSearchTarget("cmdTab.instantSearch")
+                    .settingsAnnotation(
+                        "When Cmd+Tab opens, show every app's windows with search ready.",
+                        more: "Type to filter, use the arrow keys to move through the results and Enter to switch. Tab keeps cycling the apps in the Cmd+Tab menu, and the highlighted app follows the search result. Requires search to be enabled in Window Switcher settings."
+                    )
+            }
         }
     }
 
